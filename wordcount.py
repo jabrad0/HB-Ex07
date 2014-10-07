@@ -15,7 +15,21 @@ def create_word_list(filename):
     word_list = filetext.split()
 
     input_file.close()
+
+    for i in range(len(word_list)):
+        word_list[i] = remove_punctuation(word_list[i])
+        
     return word_list
+
+def remove_punctuation(word):
+    punctuation = '.?!,""'
+    new_word = ""
+    for char in word:
+        if char not in punctuation:
+            new_word = new_word + char
+    return new_word.lower()
+
+
 
 def create_dictionary(word_list):
     word_count = {}
