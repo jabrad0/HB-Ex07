@@ -21,10 +21,11 @@ def create_dictionary(word_list):
     word_count = {}
 
     for item in word_list:
-        if item in word_count:
-            word_count[item] += 1
-        else:
-            word_count[item] = 1
+        word_count[item] = word_count.get(item, 0) + 1
+        # if item in word_count:
+        #     word_count[item] += 1
+        # else:
+        #     word_count[item] = 1
 
     return word_count
 
